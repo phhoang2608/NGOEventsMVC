@@ -1,0 +1,67 @@
+﻿@model NGOProject.Models.ticket
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("AdminNavBar")
+<h2>Details</h2>
+
+<div>
+    <h4>ticket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.buyerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.buyerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.buyerAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.buyerAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalAdult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalAdult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalChildren)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalChildren)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventsTable.eventDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventsTable.eventDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.firstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ticketID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

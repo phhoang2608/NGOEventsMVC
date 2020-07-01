@@ -1,0 +1,56 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("UserNavBar")
+<h2>Ticket Purchase Successfully!</h2>
+<div>
+    <h4>Ticket Purchase Info</h4>
+    <p style="white-space: pre-line">Customer Email: @Session["email"]</p>
+    <p style="white-space: pre-line">Customer First Name: @Session["firstName"]</p>
+    <p style="white-space: pre-line">Customer Last Name: @Session["lastName"]</p>
+    <dl class="dl-horizontal">
+        <dt>
+            Event Description: 
+        </dt>
+
+        <dd>
+            @Model.EVENTS.eventDescription
+        </dd>
+
+        <dt>
+            Event Start Date
+        </dt>
+
+        <dd>
+            @Model.EVENTS.eventStartDate
+        </dd>
+
+        <dt>
+            Total Number of Adult Booked: 
+        </dt>
+
+        <dd>
+            @Model.TICKETS.totalAdult
+        </dd>
+
+        <dt>
+            Total Number of Children Booked: 
+        </dt>
+
+        <dd>
+            @Model.TICKETS.totalChildren
+        </dd>
+
+        <dt>
+            Total Price: 
+        </dt>
+
+        <dd>
+            @Model.TICKETS.totalPrice
+        </dd>
+    </dl>
+</div>
+@Html.ActionLink("Back to List of Events", "Index", "eventsRegistration")
+

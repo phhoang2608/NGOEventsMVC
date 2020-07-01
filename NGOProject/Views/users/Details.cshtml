@@ -1,0 +1,107 @@
+﻿@model NGOProject.Models.user
+@{
+    ViewBag.Title = "Details";
+}
+@Html.Partial("AdminNavBar")
+<h2>Details</h2>
+
+<div>
+    <h4>user</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.role)
+        </dd>
+    </dl>
+    <h5>Ticket Table</h5>
+    <table class="table table-condensed table-responsive ">
+        <tr>
+            <th>
+                Ticketed Address
+            </th>
+            <th>
+                Ticketed Phone
+            </th>
+            <th>
+                Number of Children Attend
+            </th>
+            <th>
+                Number of Adult Attend
+            </th>
+            <th>
+                Total Price
+            </th>
+
+        </tr>
+        @foreach (var ticket in Model.tickets)
+        {
+            <tr>
+                <td>
+                    <p>
+                        @ticket.buyerAddress
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @ticket.buyerPhone
+
+                </td>
+                <td>
+                    <p>
+                        @ticket.totalChildren
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @ticket.totalAdult
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @ticket.totalPrice
+                    </p>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.userID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

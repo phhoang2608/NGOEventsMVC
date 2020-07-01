@@ -1,0 +1,64 @@
+﻿@model IEnumerable<NGOProject.Models.user>
+
+@{
+    ViewBag.Title = "Index";
+}
+@Html.Partial("AdminNavBar")
+<h2>Users List</h2>
+<p>
+    @Html.ActionLink("Create New User", "Create")
+</p>
+@using(Html.BeginForm("Index","users", FormMethod.Post))
+{
+    <div>
+        Search By Keywords @Html.TextBox("searchString")
+        <input id="Submit1" type="submit" value="Filter" />
+    </div>
+}
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.role)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.role)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.userID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.userID,}) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.userID })
+            </td>
+        </tr>
+    }
+
+</table>

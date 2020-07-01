@@ -1,0 +1,56 @@
+﻿@model NGOProject.Models.user
+
+@{
+    ViewBag.Title = "login";
+}
+<div class="alert alert-danger" role="alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    Hi Viewers,
+    Admin Side Access credentials:
+    Email: admin@gmail.com
+    Password: admin
+    User Side Access credentials:
+    Email: 123@gmail.com
+    Password: 123
+</div>
+<h2>Login Page</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Please Log In Using Provided Credentials.</h4>
+    <hr />
+    <p>@ViewBag.Message</p>
+    <div class="form-group input-group-lg">
+        @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <i class="fa fa-user fa-2x"></i>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+    <div class="form-group input-group-lg">
+        @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+        <i class="fas fa-key fa-2x"></i>
+        <div class="col-md-10 password">
+            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Login" class="btn btn-default btn-success"   />
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

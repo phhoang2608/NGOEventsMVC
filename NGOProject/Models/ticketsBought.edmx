@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NGOEventsModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'NGOEvents.dbo.ticketsBought' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ticketsBought">
+          <Key>
+            <PropertyRef Name="firstName" />
+            <PropertyRef Name="lastName" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="buyerPhone" />
+            <PropertyRef Name="buyerAddress" />
+            <PropertyRef Name="totalAdult" />
+            <PropertyRef Name="totalChildren" />
+            <PropertyRef Name="eventDescription" />
+            <PropertyRef Name="eventStartDate" />
+          </Key>
+          <Property Name="firstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="buyerPhone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="buyerAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="totalAdult" Type="int" Nullable="false" />
+          <Property Name="totalChildren" Type="int" Nullable="false" />
+          <Property Name="totalPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="eventDescription" Type="varchar(max)" Nullable="false" />
+          <Property Name="eventStartDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="NGOEventsModel1StoreContainer">
+          <EntitySet Name="ticketsBought" EntityType="Self.ticketsBought" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ticketsBought].[firstName] AS [firstName], 
+    [ticketsBought].[lastName] AS [lastName], 
+    [ticketsBought].[email] AS [email], 
+    [ticketsBought].[buyerPhone] AS [buyerPhone], 
+    [ticketsBought].[buyerAddress] AS [buyerAddress], 
+    [ticketsBought].[totalAdult] AS [totalAdult], 
+    [ticketsBought].[totalChildren] AS [totalChildren], 
+    [ticketsBought].[totalPrice] AS [totalPrice], 
+    [ticketsBought].[eventDescription] AS [eventDescription], 
+    [ticketsBought].[eventStartDate] AS [eventStartDate]
+    FROM [dbo].[ticketsBought] AS [ticketsBought]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NGOEventsModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ticketsBought">
+          <Key>
+            <PropertyRef Name="firstName" />
+            <PropertyRef Name="lastName" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="buyerPhone" />
+            <PropertyRef Name="buyerAddress" />
+            <PropertyRef Name="totalAdult" />
+            <PropertyRef Name="totalChildren" />
+            <PropertyRef Name="eventDescription" />
+            <PropertyRef Name="eventStartDate" />
+          </Key>
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="buyerPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="buyerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="totalAdult" Type="Int32" Nullable="false" />
+          <Property Name="totalChildren" Type="Int32" Nullable="false" />
+          <Property Name="totalPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="eventDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="eventStartDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="NGOEventsEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ticketsBoughts" EntityType="Self.ticketsBought" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NGOEventsModel1StoreContainer" CdmEntityContainer="NGOEventsEntities1">
+          <EntitySetMapping Name="ticketsBoughts">
+            <EntityTypeMapping TypeName="NGOEventsModel1.ticketsBought">
+              <MappingFragment StoreEntitySet="ticketsBought">
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="buyerPhone" ColumnName="buyerPhone" />
+                <ScalarProperty Name="buyerAddress" ColumnName="buyerAddress" />
+                <ScalarProperty Name="totalAdult" ColumnName="totalAdult" />
+                <ScalarProperty Name="totalChildren" ColumnName="totalChildren" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+                <ScalarProperty Name="eventDescription" ColumnName="eventDescription" />
+                <ScalarProperty Name="eventStartDate" ColumnName="eventStartDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

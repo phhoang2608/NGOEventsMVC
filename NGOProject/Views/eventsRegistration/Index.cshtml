@@ -1,0 +1,84 @@
+﻿@model IEnumerable<NGOProject.Models.eventsTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+@Html.Partial("UserNavBar")
+<h2>Event Registration</h2>
+
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.eventDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventStartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eventEndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.registration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adultPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.childPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.registration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adultPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.childPrice)
+            </td>
+            <td>
+                <img src="~/Content/Images/@item.image" width="100" height="100" />
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.eventID })
+
+            </td>
+        </tr>
+    }
+
+</table>

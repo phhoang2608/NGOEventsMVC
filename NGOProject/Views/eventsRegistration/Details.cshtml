@@ -1,0 +1,115 @@
+﻿@model NGOProject.Models.eventsTable
+
+@{
+    ViewBag.Title = "Details";
+}
+@Html.Partial("UserNavBar")
+<h2>Details</h2>
+
+<div>
+    <h4>eventsTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.eventDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventStartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventStartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventEndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventEndTime)
+        </dd>
+
+        <dt hidden>
+            @Html.DisplayNameFor(model => model.registration)
+        </dt>
+        <dd hidden>
+            @Html.DisplayFor(model => model.registration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adultPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adultPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.childPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.childPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.image)" alt="Image" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" class="text-primary" onclick="hide()">Check purchase status</button>
+    <div id="purchase" style="display:none">
+    @Html.ActionLink("Purchase", "Create", "tickets", new { id = Model.eventID }, null)
+    </div>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<script>
+    function hide()
+    {
+        var checkValid = '@Model.registration'.toString();
+        //alert(checkValid);
+        if (checkValid == 'False') {
+            alert("Admin has made purchase inactive");
+        }
+        else if(checkValid == 'True')
+        {
+            alert("Purchase is active. Please click on Purchase link");
+            document.getElementById("purchase").style.display = 'block';
+        }
+    }
+</script>
